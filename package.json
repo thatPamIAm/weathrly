@@ -4,7 +4,7 @@
   "description": "Weather Application in React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --inline --hot",
     "build": "webpack.js",
     "test": "mocha --compilers js:babel/register"
   },
