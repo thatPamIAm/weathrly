@@ -43,6 +43,11 @@ input[type=submit] {
 
 .currentTemp {
 text-align: center;
+font-size: 7em;
+}
+
+.fahrenheit {
+  font-size:.25em;
 }
 
 .simpleForecast {
