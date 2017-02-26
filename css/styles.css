@@ -102,6 +102,7 @@ navbar {
 .weather-icon {
   font-size: 5em;
   display: block;
+  padding-bottom: 10px;
   text-align: center;
 }
 
@@ -119,6 +120,7 @@ navbar {
   position: absolute;
   top: 0;
   right: 10px;
+  font-size: 1.4em;
   color: #b50000;
 }
 
@@ -126,6 +128,7 @@ navbar {
   position: absolute;
   top: 0;
   left: 10px;
+  font-size: 1.4em;
   color: #1460aa;
 }
 
@@ -178,7 +181,7 @@ navbar {
 
 .hourly-box {
   display: inline-block;
-  margin: 8px;
+  margin: 6px;
 }
 
 .hourly-forecast {
@@ -192,6 +195,7 @@ navbar {
 .hourly-icon {
   width: 100%;
   margin: 0 auto;
+  padding: 2px 0;
   font-size: 1.4em;
   text-align: center;
 }
