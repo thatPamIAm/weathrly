@@ -1,21 +1,36 @@
+html {
+  height: 100%;
+}
+
 body {
-  margin: 0;
-  background: aqua;
+  height: 100%;
+  /*background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;*/
+}
+
+.react-div {
+  height: 100%;
+  background: #50c9c3;
+  background: -webkit-linear-gradient(to bottom, #50c9c3 , #fff);
+  background:         linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
 }
 
 navbar {
   display: block;
+
   width: 100%;
   height: 30px;
 }
 
 input[type=text] {
+  font-size: 12px;
+
   width: 70%;
   height: 30px;
-  border: none;
   padding: 0;
-  font-size: 12px;
+
   text-indent: 5px;
+
+  border: none;
 }
 
 input[type=submit] {
@@ -26,31 +41,32 @@ input[type=submit] {
 }
 
 .welcomeHeader {
-  text-align: center;
   font-size: 2em;
+
   margin: 20px;
+
+  text-align: center;
 }
 
 .currentWeatherSection {
-  text-align: center;
   margin-bottom: 50px;
-
+  text-align: center;
 }
 
 .currentCity {
-  text-align: center;
-  margin-top: 25px;
   font-size: 1.5em;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .currentDay {
-  text-align: center;
   margin-top: 5px;
+  text-align: center;
 }
 
 .currentTemp {
-text-align: center;
-font-size: 7em;
+  font-size: 7em;
+  text-align: center;
 }
 
 .fahrenheit {
@@ -62,14 +78,14 @@ font-size: 7em;
 }
 
 .weatherIcon {
-  display: block;
   font-size: 80px;
+  display: block;
   text-align: center;
 }
 
 .weatherSum {
-  text-align: center;
   margin: 10px;
+  text-align: center;
 }
 
 .loHiContainer {
@@ -82,6 +98,7 @@ font-size: 7em;
   top: 0;
   right: 10px;
 }
+
 .currentLo {
   position: absolute;
   top: 0;
@@ -89,46 +106,42 @@ font-size: 7em;
 }
 
 .ten-day {
-  margin:10px 10px 10px 10px;
-  display:inline-block;
+  display: inline-block;
+  margin: 10px 10px 10px 10px;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid black;
+}
+
+.ten-day-render {
+  margin-top: 20px;
 }
 
 .hourly-box {
-  display:inline-block;
-  margin:5px;
-  /*margin:auto:10px 5px 10px 5px;*/
+  display: inline-block;
+  margin: 9px;
 }
 
 .hourly-forecast {
-  margin:2.5px;
+  margin: 2.5px;
 }
 
 .temp {
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 h6 {
-  margin-left:30px
+  margin-left: 30px;
 }
 
-.seven-hour-container{
-  width: auto;
-  height: 70px;
+.seven-hour-container {
   overflow-x: scroll;
   overflow-y: hidden;
+  width: auto;
+  height: 70px;
   white-space: nowrap;
 }
 
-/*section::-webkit-scrollbar {
-    width: 12px;
+.tenDayData {
+  text-align: center;
 }
-
-section::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
-}
-
-section::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}*/
