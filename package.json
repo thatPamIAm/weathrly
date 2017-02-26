@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack.js",
-    "test": "mocha --compilers js:babel/register"
+    "test": "mocha --require test/helpers/setup.js"
   },
   "repository": {
     "type": "git",
@@ -28,13 +28,18 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "enzyme": "^2.7.1",
+    "jsdom": "^9.11.0",
+    "locus": "^2.0.1",
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.4.2",
     "react": "^15.1.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.1.0",
     "sass-loader": "^3.2.0",
+    "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
