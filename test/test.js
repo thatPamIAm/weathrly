@@ -73,8 +73,8 @@ describe('testing Weathrly App', () => {
       const wrapper = shallow(<CurrentWeatherCard currentData={currentData} forecastData={forecastData}/>);
 
       expect(wrapper.find('.currentCity').text()).to.equal('Den');
-      expect(wrapper.find('.currentDay').text()).to.equal('TODAY Monday');
-      expect(wrapper.find('.currentTemp').text()).to.equal('70 °F');
+      expect(wrapper.find('.currentDay').text()).to.equal('Monday');
+      expect(wrapper.find('.currentTemp').text()).to.equal('70°F');
       expect(wrapper.find('.simpleForecast').text()).to.equal('Clear');
       expect(wrapper.find('.weatherSum').text()).to.equal('Clear all day');
       expect(wrapper.find('.currentHi').text()).to.equal('High 70');
