@@ -30,13 +30,14 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('');
     });
 
-    it.skip('should be able to change the location state of NavBar', () => {
+    it('should be able to change the location state of NavBar', () => {
       const wrapper = shallow(<NavBar/>);
-      const navBarStates= wrapper.state();
+      let navBarStates = wrapper.state();
       const inputField = wrapper.find('.textInput');
 
       expect(navBarStates.location).to.equal('');
-      inputField.simulate('change', {target: {value: 'Denver CO'}});
+      inputField.simulate('change', {target: {value: 'Denver, CO'}});
+      navBarStates = wrapper.state();
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
