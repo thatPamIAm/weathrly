@@ -40,14 +40,22 @@ navbar {
 }
 
 .main-header {
-  margin: 20px;
-  font-size: 2em;
+  padding: 20px;
+  font-size: 2.5em;
   font-weight: 700;
   text-align: center;
 }
 
 .greeting-header {
+  padding: 10px;
   text-align: center;
+}
+
+.not-found-header {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 
 .current-weather-section {
@@ -56,8 +64,8 @@ navbar {
 }
 
 .current-city {
+  padding: 20px;
   font-size: 1.5em;
-  margin-top: 25px;
   text-align: center;
 }
 
@@ -67,7 +75,8 @@ navbar {
 }
 
 .current-temp {
-  font-size: 7em;
+  padding-bottom: 10px;
+  font-size: 5em;
   text-align: center;
 }
 
@@ -76,6 +85,7 @@ navbar {
 }
 
 .simple-forecast {
+  padding-bottom: 30px;
   text-align: center;
 }
 
@@ -107,12 +117,29 @@ navbar {
   left: 10px;
 }
 
+.seven-hour-container {
+  width: 90%;
+  height: 70px;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.ten-day-data {
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+}
+
 .ten-day {
   display: inline-block;
-  margin: 10px 10px 10px 10px;
+  /*margin: 10px 10px 10px 10px;
   padding: 20px;
-  text-align: center;
-  border-top: 1px solid black;
+  text-align: center;*/
 }
 
 .ten-day-render {
@@ -136,14 +163,7 @@ h6 {
   margin-left: 30px;
 }
 
-.seven-hour-container {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  width: auto;
-  height: 70px;
-  white-space: nowrap;
-}
 
-.ten-day-data {
+/*.ten-day-data {
   text-align: center;
-}
+}*/
