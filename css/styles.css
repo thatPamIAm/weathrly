@@ -1,70 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 html {
   height: 100%;
 }
 
 body {
   height: 100%;
-  /*background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;*/
+  background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;
+  font-family: 'Roboto', sans-serif;
 }
 
 .react-div {
   height: 100%;
   background: #50c9c3;
   background: -webkit-linear-gradient(to bottom, #50c9c3 , #fff);
-  background:         linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
+  background: linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
 }
 
 navbar {
   display: block;
-
   width: 100%;
   height: 30px;
 }
 
-input[type=text] {
-  font-size: 12px;
-
+.text-input {
   width: 70%;
   height: 30px;
   padding: 0;
-
-  text-indent: 5px;
-
   border: none;
+  font-size: 12px;
+  text-indent: 5px;
 }
 
-input[type=submit] {
+.submit-btn {
   width: 30%;
   height: 30px;
   padding: 0;
   border: none;
 }
 
-.welcomeHeader {
-  font-size: 2em;
-
+.welcome-header {
   margin: 20px;
-
+  font-size: 2em;
+  font-weight: 700;
   text-align: center;
 }
 
-.currentWeatherSection {
+.current-weather-section {
   margin-bottom: 50px;
   text-align: center;
 }
 
-.currentCity {
+.current-city {
   font-size: 1.5em;
   margin-top: 25px;
   text-align: center;
 }
 
-.currentDay {
+.current-day {
   margin-top: 5px;
   text-align: center;
 }
 
-.currentTemp {
+.current-temp {
   font-size: 7em;
   text-align: center;
 }
@@ -73,33 +71,33 @@ input[type=submit] {
   font-size:.25em;
 }
 
-.simpleForecast {
+.simple-forecast {
   text-align: center;
 }
 
-.weatherIcon {
+.weather-icon {
   font-size: 80px;
   display: block;
   text-align: center;
 }
 
-.weatherSum {
+.weather-sum {
   margin: 10px;
   text-align: center;
 }
 
-.loHiContainer {
+.lo-hi-container {
   position: relative;
   margin: 10px;
 }
 
-.currentHi {
+.current-hi {
   position: absolute;
   top: 0;
   right: 10px;
 }
 
-.currentLo {
+.current-lo {
   position: absolute;
   top: 0;
   left: 10px;
@@ -142,6 +140,6 @@ h6 {
   white-space: nowrap;
 }
 
-.tenDayData {
+.ten-day-data {
   text-align: center;
 }
