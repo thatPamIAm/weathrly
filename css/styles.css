@@ -27,18 +27,25 @@ input[type=submit] {
 
 .welcomeHeader {
   text-align: center;
+  font-size: 2em;
+  margin-top: 20px;
 }
 
 .currentWeatherSection {
   text-align: center;
+  margin-bottom: 25px;
+
 }
 
 .currentCity {
   text-align: center;
+  margin-top: 25px;
+  font-size: 1.5em;
 }
 
 .currentDay {
   text-align: center;
+  margin-top: 5px;
 }
 
 .currentTemp {
@@ -62,10 +69,12 @@ font-size: 7em;
 
 .weatherSum {
   text-align: center;
+  margin: 10px;
 }
 
 .loHiContainer {
   position: relative;
+  margin: 10px;
 }
 
 .currentHi {
@@ -77,4 +86,9 @@ font-size: 7em;
   position: absolute;
   top: 0;
   left: 10px;
+}
+
+.ten-day {
+  margin:10px 10px 10px 40px;
+  display:inline-block;
 }
