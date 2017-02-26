@@ -42,6 +42,7 @@ navbar {
   margin: 0 1%;
   padding: 0;
   background: #4b5555;
+  font-size: 0.8em;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -118,12 +119,14 @@ navbar {
   position: absolute;
   top: 0;
   right: 10px;
+  color: #b50000;
 }
 
 .current-lo {
   position: absolute;
   top: 0;
   left: 10px;
+  color: #1460aa;
 }
 
 .seven-hour-container {
@@ -151,12 +154,15 @@ navbar {
 
 .ten-day-lo {
   position: absolute;
-  right: 18px;
+  right: 70px;
+  color: #1460aa;
 }
 
 .ten-day-hi {
   position: absolute;
-  right: 70px;
+  right: 18px;
+  color: #b50000;
+
 }
 
 .ten-day-icon {
