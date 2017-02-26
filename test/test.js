@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 import App from '../lib/components/App'
 import NavBar from '../lib/components/NavBar'
 import CurrentWeatherCard from '../lib/components/CurrentWeatherCard'
+import TenDay from '../lib/components/TenDay'
 import WeatherData from './helpers/MockData'
 
 require('locus')
@@ -62,7 +63,7 @@ describe('testing Weathrly App', () => {
 
     it('should display instructional text if CurrentWeatherCard recieves no data', () => {
       const wrapper = shallow(<CurrentWeatherCard/>);
-      expect(wrapper.find('h4').text()).to.equal("Please Enter a State and City");
+      expect(wrapper.find('h4').text()).to.equal('Please Enter a State and City');
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
@@ -70,13 +71,13 @@ describe('testing Weathrly App', () => {
       const forecastData   = WeatherData.ForecastData;
       const wrapper = shallow(<CurrentWeatherCard currentData={currentData} forecastData={forecastData}/>);
 
-      expect(wrapper.find('.currentCity').text()).to.equal("Den");
-      expect(wrapper.find('.currentDay').text()).to.equal("TODAY Monday");
-      expect(wrapper.find('.currentTemp').text()).to.equal("70 °F");
-      expect(wrapper.find('.simpleForecast').text()).to.equal("Clear");
-      expect(wrapper.find('.weatherSum').text()).to.equal("Clear all day");
-      expect(wrapper.find('.currentHi').text()).to.equal("High 70");
-      expect(wrapper.find('.currentLo').text()).to.equal("Low 32");
+      expect(wrapper.find('.currentCity').text()).to.equal('Den');
+      expect(wrapper.find('.currentDay').text()).to.equal('TODAY Monday');
+      expect(wrapper.find('.currentTemp').text()).to.equal('70 °F');
+      expect(wrapper.find('.simpleForecast').text()).to.equal('Clear');
+      expect(wrapper.find('.weatherSum').text()).to.equal('Clear all day');
+      expect(wrapper.find('.currentHi').text()).to.equal('High 70');
+      expect(wrapper.find('.currentLo').text()).to.equal('Low 32');
     });
 
   });
@@ -85,6 +86,21 @@ describe('testing Weathrly App', () => {
     it('should have a component named TenDay', () => {
       const wrapper = shallow(<App/>);
       expect(wrapper.find('TenDay')).to.have.length(1);
+    });
+
+    it('should display no data if nothing is passed into component', () => {
+      const wrapper = shallow(<TenDay/>);
+      expect(wrapper.find('div').text()).to.equal('');
+    });
+
+    it('should display weather data if TenDay recieves data', () => {
+      const tenDayForecast = WeatherData.TenDay;
+      const wrapper = shallow(<TenDay tenDayForecast={tenDayForecast}/>);
+
+      expect(wrapper.find('.tenDayData')).to.have.length(2);
+
+      const weatherDataText = wrapper.find('.tenDayData').map(node => node.text())
+      expect(weatherDataText).to.deep.equal([ 'TueHi 65Lo 28', 'WedHi 58Lo 20' ]);
     });
 
   });
