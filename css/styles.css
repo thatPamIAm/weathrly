@@ -28,7 +28,7 @@ navbar {
   height: 30px;
   padding: 0;
   border: none;
-  font-size: 12px;
+  font-size: 0.8em;
   text-indent: 5px;
 }
 
@@ -39,10 +39,14 @@ navbar {
   border: none;
 }
 
-.welcome-header {
+.main-header {
   margin: 20px;
   font-size: 2em;
   font-weight: 700;
+  text-align: center;
+}
+
+.greeting-header {
   text-align: center;
 }
 
@@ -76,7 +80,7 @@ navbar {
 }
 
 .weather-icon {
-  font-size: 80px;
+  font-size: 5em;
   display: block;
   text-align: center;
 }
