@@ -52,5 +52,14 @@ const TenDay = {
   }
 };
 
-export default { CurrentData, ForecastData, TenDay };
+const SevenHour = [{
+  FCTTIME: {
+    civil:"5:00PM"
+  },
 
+  temp: {
+    english: "42"
+  }
+}]
+
+export default { CurrentData, ForecastData, TenDay, SevenHour };
