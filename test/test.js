@@ -111,12 +111,11 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find('CurrentWeatherCard')).to.have.length(1);
     });
 
-    it.skip('should display instructional text if CurrentWeatherCard receives no data', () => {
-      const wrapper = shallow(<CurrentWeatherCard/>);
-      const test = wrapper.find(Greeting)
+    it('should display instructional text if CurrentWeatherCard receives no data', () => {
+      const wrapper = shallow(<CurrentWeatherCard currentData={null}/>);
+      const greetWrapper = shallow(wrapper.node.type())
 
-      expect(wrapper.find(Greeting)).to.have.length(2)
-      expect(wrapper.find(Greeting).dive().find('h2')).to.equal('Please Enter a State and City');
+      expect(greetWrapper.find('.greeting-header').text()).to.equal('Please Enter a Location')
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
