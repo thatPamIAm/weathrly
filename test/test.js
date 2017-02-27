@@ -39,8 +39,6 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find(SevenHour)).to.have.length.of(1);
       expect(wrapper.find(TenDay)).to.have.length.of(1);
     });
-
-    it('should update the states of the props upon clicking')
   });
 
 
