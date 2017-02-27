@@ -39,13 +39,11 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find(SevenHour)).to.have.length.of(1);
       expect(wrapper.find(TenDay)).to.have.length.of(1);
     });
-
-    it('should update the states of the props upon clicking')
   });
 
 
   describe('testing NavBar component', () => {
-      it('should have a component named NavBar', () => {
+    it('should have a component named NavBar', () => {
       const wrapper = shallow(<App/>);
 
       expect(wrapper.find('NavBar')).to.have.length(1);
@@ -177,8 +175,7 @@ describe('testing Weathrly App', () => {
 
       expect(wrapper.find('.hourly-box')).to.have.length(1)
       const weatherDataText = wrapper.find('.hourly-box').map(node => node.text())
-      console.log(weatherDataText)
-      expect(weatherDataText).to.deep.equal(['5:00PM', '42°F']);
+      expect(weatherDataText).to.deep.equal(['5:00PM42°F']);
     });
   });
 });
