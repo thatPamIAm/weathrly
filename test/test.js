@@ -8,6 +8,7 @@ import CurrentWeatherCard from '../lib/components/CurrentWeatherCard'
 import TenDay from '../lib/components/TenDay'
 import SevenHour from '../lib/components/SevenHour'
 import WeatherData from './helpers/MockData'
+import LocationNotFound from '../lib/components/LocationNotFound'
 require('locus')
 
 describe('testing Weathrly App', () => {
@@ -41,6 +42,14 @@ describe('testing Weathrly App', () => {
     });
   });
 
+  describe('testing LocationNotFound component', () => {
+    it('should display LocationNotFound component when location is not found', () => {
+      const responseData = WeatherData.ResponseData
+      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>)
+
+      expect(wrapper.find('.not-found-header').text()).to.equal('No cities match your search query');
+    });
+  });
 
   describe('testing NavBar component', () => {
     it('should have a component named NavBar', () => {
