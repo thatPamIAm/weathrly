@@ -47,11 +47,13 @@ describe('testing Weathrly App', () => {
   describe('testing NavBar component', () => {
       it('should have a component named NavBar', () => {
       const wrapper = shallow(<App/>);
+
       expect(wrapper.find('NavBar')).to.have.length(1);
     });
 
     it('NavBar should contain an input field and a submit button', () => {
       const wrapper = shallow(<NavBar/>);
+
       expect(wrapper.find('.text-input')).to.have.length(1);
       expect(wrapper.find('.submit-btn')).to.have.length(1);
     });
@@ -71,6 +73,7 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('');
       inputField.simulate('change', {target: {value: 'Denver, CO'}});
       navBarStates = wrapper.state();
+
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
@@ -84,10 +87,12 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('');
       inputField.simulate('change', {target: {value: 'Denver, CO'}});
       navBarStates = wrapper.state();
+
       expect(navBarStates.location).to.equal('Denver, CO');
       sinon.stub(wrapper.instance(), 'save')
       submitBtn.simulate('click');
       navBarStates = wrapper.state();
+
       expect(navBarStates.location).to.equal('');
     });
 
@@ -96,13 +101,14 @@ describe('testing Weathrly App', () => {
   describe('testing CurrentWeatherCard component', () => {
     it('should have a component named CurrentWeatherCard', () => {
       const wrapper = shallow(<App/>);
+
       expect(wrapper.find('CurrentWeatherCard')).to.have.length(1);
     });
 
     it.skip('should display instructional text if CurrentWeatherCard receives no data', () => {
       const wrapper = shallow(<CurrentWeatherCard/>);
       const test = wrapper.find(Greeting)
-      console.log(test)
+
       expect(wrapper.find(Greeting)).to.have.length(2)
       expect(wrapper.find(Greeting).dive().find('h2')).to.equal('Please Enter a State and City');
     });
@@ -120,22 +126,24 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find('.current-hi').text()).to.equal('70°');
       expect(wrapper.find('.current-lo').text()).to.equal('32°');
     });
-
   });
 
   describe('testing TenDay component', () => {
     it('should have a component named TenDay', () => {
       const wrapper = shallow(<App/>);
+
       expect(wrapper.find('TenDay')).to.have.length(1);
     });
 
     it('should display no data if nothing is passed into component', () => {
       const wrapper = shallow(<TenDay/>);
+
       expect(wrapper.find('div').text()).to.equal('');
     });
 
     it('should render one div component', () => {
       const wrapper = shallow(<TenDay/>);
+
       expect(wrapper.find('div')).to.have.length.of(1)
     });
 
@@ -145,15 +153,15 @@ describe('testing Weathrly App', () => {
 
       expect(wrapper.find('.ten-day-data')).to.have.length(2);
       const weatherDataText = wrapper.find('.ten-day-data').map(node => node.text())
+
       expect(weatherDataText).to.deep.equal(['Tue28°65°', 'Wed20°58°']);
     });
-
-
   });
 
   describe('testing SevenHour component', () => {
     it('should have a component named SevenHour', () => {
       const wrapper = shallow(<App/>);
+
       expect(wrapper.find('SevenHour')).to.have.length(1);
     });
 
@@ -161,13 +169,16 @@ describe('testing Weathrly App', () => {
       const wrapper = shallow(<SevenHour/>);
 
       expect(wrapper.find('div').text()).to.equal('');
-
     });
 
-    // it('should display weather data if SevenHour receives data', () => {
-    //   const SevenDayForecast =
-    // });
+    it('should display weather data if SevenHour receives data', () => {
+      const hourlyForecast = WeatherData.SevenHour;
+      const wrapper = shallow(<SevenHour hourlyForecast={hourlyForecast}/> )
+
+      expect(wrapper.find('.hourly-box')).to.have.length(1)
+      const weatherDataText = wrapper.find('.hourly-box').map(node => node.text())
+      console.log(weatherDataText)
+      expect(weatherDataText).to.deep.equal(['5:00PM', '42°F']);
+    });
   });
-
-
 });
