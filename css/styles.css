@@ -1,20 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-html {
-  height: 100%;
-}
-
 body {
-  height: 100%;
   background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;
+  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
-}
-
-.react-div {
-  height: 100%;
-  background: #50c9c3;
-  background: -webkit-linear-gradient(to bottom, #50c9c3 , #fff);
-  background: linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
 }
 
 navbar {
@@ -27,6 +16,7 @@ navbar {
 .text-input {
   width: 68%;
   height: 30px;
+  max-width: 500px;
   margin: 0 1%;
   padding: 0;
   color: #4b5555;
@@ -39,6 +29,7 @@ navbar {
 .submit-btn {
   width: 28%;
   height: 30px;
+  max-width: 155px;
   margin: 0 1%;
   padding: 0;
   background: #4b5555;
@@ -47,6 +38,27 @@ navbar {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.ui-menu {
+  background: #FFF;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.ui-menu-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.ui-menu-item:hover {
+  color: #50c9c3;
+  width: 80%;
+}
+
+.ui-helper-hidden-accessible {
+  position: absolute; left:-999em;
 }
 
 .main-header {
