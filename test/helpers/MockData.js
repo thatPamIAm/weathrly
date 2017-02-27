@@ -62,4 +62,11 @@ const SevenHour = [{
   }
 }]
 
-export default { CurrentData, ForecastData, TenDay, SevenHour };
+
+const ResponseData = {
+  error: {
+    description: "No cities match your search query"
+  }
+}
+
+export default { CurrentData, ForecastData, TenDay, SevenHour, ResponseData };

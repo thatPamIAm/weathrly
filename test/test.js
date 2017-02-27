@@ -8,6 +8,7 @@ import CurrentWeatherCard from '../lib/components/CurrentWeatherCard'
 import TenDay from '../lib/components/TenDay'
 import SevenHour from '../lib/components/SevenHour'
 import WeatherData from './helpers/MockData'
+import LocationNotFound from '../lib/components/LocationNotFound'
 require('locus')
 
 describe('testing Weathrly App', () => {
@@ -41,6 +42,14 @@ describe('testing Weathrly App', () => {
     });
   });
 
+  describe('testing LocationNotFound component', () => {
+    it('should display LocationNotFound component when location is not found', () => {
+      const responseData = WeatherData.ResponseData
+      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>)
+
+      expect(wrapper.find('.not-found-header').text()).to.equal('No cities match your search query');
+    });
+  });
 
   describe('testing NavBar component', () => {
     it('should have a component named NavBar', () => {
@@ -75,19 +84,27 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
-    it.skip('should be able to change the location state of NavBar and on submit clear the location state', () => {
+    it('should be able to click submit and register a click', () => {
+      const handleSubmit = sinon.spy()
+      const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
+      const submitBtn = wrapper.find('.submit-btn');
+
+      submitBtn.simulate('click');
+      expect(handleSubmit).to.have.property('callCount', 1);
+    });
+
+    it('should update the location state and clear on submit', () => {
+      const handleSubmit = sinon.spy()
       const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
       let navBarStates= wrapper.state();
-      const inputField = wrapper.find('.text-input');
       const submitBtn = wrapper.find('.submit-btn');
-      const handleSubmit = sinon.spy()
+      const inputField = wrapper.find('.text-input');
 
       expect(navBarStates.location).to.equal('');
       inputField.simulate('change', {target: {value: 'Denver, CO'}});
       navBarStates = wrapper.state();
 
       expect(navBarStates.location).to.equal('Denver, CO');
-      sinon.stub(wrapper.instance(), 'save')
       submitBtn.simulate('click');
       navBarStates = wrapper.state();
 
@@ -103,12 +120,11 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find('CurrentWeatherCard')).to.have.length(1);
     });
 
-    it.skip('should display instructional text if CurrentWeatherCard receives no data', () => {
-      const wrapper = shallow(<CurrentWeatherCard/>);
-      const test = wrapper.find(Greeting)
+    it('should display instructional text if CurrentWeatherCard receives no data', () => {
+      const wrapper = shallow(<CurrentWeatherCard currentData={null}/>);
+      const greetWrapper = shallow(wrapper.node.type())
 
-      expect(wrapper.find(Greeting)).to.have.length(2)
-      expect(wrapper.find(Greeting).dive().find('h2')).to.equal('Please Enter a State and City');
+      expect(greetWrapper.find('.greeting-header').text()).to.equal('Please Enter a Location')
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
