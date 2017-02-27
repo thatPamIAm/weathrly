@@ -27,6 +27,7 @@ navbar {
 .text-input {
   width: 68%;
   height: 30px;
+  max-width: 500px;
   margin: 0 1%;
   padding: 0;
   color: #4b5555;
@@ -39,6 +40,7 @@ navbar {
 .submit-btn {
   width: 28%;
   height: 30px;
+  max-width: 155px;
   margin: 0 1%;
   padding: 0;
   background: #4b5555;
@@ -47,6 +49,27 @@ navbar {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.ui-menu {
+  background: #FFF;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.ui-menu-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.ui-menu-item:hover {
+  color: #50c9c3;
+  width: 80%;
+}
+
+.ui-helper-hidden-accessible {
+  position: absolute; left:-999em;
 }
 
 .main-header {
