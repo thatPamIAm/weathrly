@@ -1,20 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-html {
-  height: 100%;
-}
-
 body {
-  height: 100%;
   background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;
+  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
-}
-
-.react-div {
-  height: 100%;
-  background: #50c9c3;
-  background: -webkit-linear-gradient(to bottom, #50c9c3 , #fff);
-  background: linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
 }
 
 navbar {
