@@ -1,18 +1,17 @@
-import { expect } from 'chai';
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import App from '../lib/components/App'
 import NavBar from '../lib/components/NavBar'
 import CurrentWeatherCard from '../lib/components/CurrentWeatherCard'
 import TenDay from '../lib/components/TenDay'
 import SevenHour from '../lib/components/SevenHour'
-import WeatherData from './helpers/MockData'
 import LocationNotFound from '../lib/components/LocationNotFound'
-require('locus')
+import WeatherData from './helpers/MockData'
+require('locus');
 
 describe('testing Weathrly App', () => {
-
   describe('testing App component', () => {
     it('should have props for four types of data', () => {
       const wrapper = shallow(<App/>);
@@ -23,8 +22,8 @@ describe('testing Weathrly App', () => {
       expect(wrapper.props().hourlyData).to.be.defined;
     });
 
-    it('should have an initial state of null for all of its props', () =>{
-      const wrapper = shallow(<App/>)
+    it('should have an initial state of null for all of its props', () => {
+      const wrapper = shallow(<App/>);
 
       expect(wrapper.state().responseData).to.equal(null);
       expect(wrapper.state().currentData).to.equal(null);
@@ -44,8 +43,8 @@ describe('testing Weathrly App', () => {
 
   describe('testing LocationNotFound component', () => {
     it('should display LocationNotFound component when location is not found', () => {
-      const responseData = WeatherData.ResponseData
-      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>)
+      const responseData = WeatherData.ResponseData;
+      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>);
 
       expect(wrapper.find('.not-found-header').text()).to.equal('No cities match your search query');
     });
@@ -67,7 +66,7 @@ describe('testing Weathrly App', () => {
 
     it('NavBar should contain a state of location', () => {
       const wrapper = shallow(<NavBar/>);
-      const navBarStates= wrapper.state();
+      const navBarStates = wrapper.state();
 
       expect(navBarStates.location).to.equal('');
     });
@@ -78,14 +77,14 @@ describe('testing Weathrly App', () => {
       const inputField = wrapper.find('.text-input');
 
       expect(navBarStates.location).to.equal('');
-      inputField.simulate('change', {target: {value: 'Denver, CO'}});
+      inputField.simulate('change', { target: { value: 'Denver, CO' } });
       navBarStates = wrapper.state();
 
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
     it('should be able to click submit and register a click', () => {
-      const handleSubmit = sinon.spy()
+      const handleSubmit = sinon.spy();
       const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
       const submitBtn = wrapper.find('.submit-btn');
 
@@ -94,14 +93,14 @@ describe('testing Weathrly App', () => {
     });
 
     it('should update the location state and clear on submit', () => {
-      const handleSubmit = sinon.spy()
+      const handleSubmit = sinon.spy();
       const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
-      let navBarStates= wrapper.state();
+      let navBarStates = wrapper.state();
       const submitBtn = wrapper.find('.submit-btn');
       const inputField = wrapper.find('.text-input');
 
       expect(navBarStates.location).to.equal('');
-      inputField.simulate('change', {target: {value: 'Denver, CO'}});
+      inputField.simulate('change', { target: { value: 'Denver, CO' } });
       navBarStates = wrapper.state();
 
       expect(navBarStates.location).to.equal('Denver, CO');
@@ -110,7 +109,6 @@ describe('testing Weathrly App', () => {
 
       expect(navBarStates.location).to.equal('');
     });
-
   });
 
   describe('testing CurrentWeatherCard component', () => {
@@ -122,15 +120,16 @@ describe('testing Weathrly App', () => {
 
     it('should display instructional text if CurrentWeatherCard receives no data', () => {
       const wrapper = shallow(<CurrentWeatherCard currentData={null}/>);
-      const greetWrapper = shallow(wrapper.node.type())
+      const greetWrapper = shallow(wrapper.node.type());
 
-      expect(greetWrapper.find('.greeting-header').text()).to.equal('Please Enter a Location')
+      expect(greetWrapper.find('.greeting-header').text()).to.equal('Please Enter a Location');
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
       const currentData = WeatherData.CurrentData;
-      const forecastData   = WeatherData.ForecastData;
-      const wrapper = shallow(<CurrentWeatherCard currentData={currentData} forecastData={forecastData}/>);
+      const forecastData = WeatherData.ForecastData;
+      const wrapper = shallow(<CurrentWeatherCard currentData={currentData}
+        forecastData={forecastData}/>);
 
       expect(wrapper.find('.current-city').text()).to.equal('Den');
       expect(wrapper.find('.current-day').text()).to.equal('Monday');
@@ -158,7 +157,7 @@ describe('testing Weathrly App', () => {
     it('should render one div component', () => {
       const wrapper = shallow(<TenDay/>);
 
-      expect(wrapper.find('div')).to.have.length.of(1)
+      expect(wrapper.find('div')).to.have.length.of(1);
     });
 
     it('should display weather data if TenDay receives data', () => {
@@ -166,7 +165,7 @@ describe('testing Weathrly App', () => {
       const wrapper = shallow(<TenDay tenDayForecast={tenDayForecast}/>);
 
       expect(wrapper.find('.ten-day-data')).to.have.length(2);
-      const weatherDataText = wrapper.find('.ten-day-data').map(node => node.text())
+      const weatherDataText = wrapper.find('.ten-day-data').map(node => node.text());
 
       expect(weatherDataText).to.deep.equal(['Tue28°65°', 'Wed20°58°']);
     });
@@ -187,10 +186,10 @@ describe('testing Weathrly App', () => {
 
     it('should display weather data if SevenHour receives data', () => {
       const hourlyForecast = WeatherData.SevenHour;
-      const wrapper = shallow(<SevenHour hourlyForecast={hourlyForecast}/> )
+      const wrapper = shallow(<SevenHour hourlyForecast={hourlyForecast}/>);
 
-      expect(wrapper.find('.hourly-box')).to.have.length(1)
-      const weatherDataText = wrapper.find('.hourly-box').map(node => node.text())
+      expect(wrapper.find('.hourly-box')).to.have.length(1);
+      const weatherDataText = wrapper.find('.hourly-box').map(node => node.text());
       expect(weatherDataText).to.deep.equal(['5:00PM42°F']);
     });
   });
