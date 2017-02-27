@@ -3,6 +3,7 @@ require('babel-register')({
 });
 
 require('babel-polyfill');
+const makeJQ = require('jquery');
 
 global.document = require('jsdom').jsdom(
   "<head><meta charset='UTF-8><div id='application'></div></head>"
@@ -15,5 +16,7 @@ global.document = require('jsdom').jsdom(
 //  };
 // }
 
-global.window = document.defaultView // if we have to go to the window (Event bubbling, referencing the window)
-global.navigator = window.navigator // if something is paginated this allows us to go from page to page
+global.window = document.defaultView;
+global.navigator = window.navigator;
+global.$ = global.jQuery = makeJQ(window);
+
