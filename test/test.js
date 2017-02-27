@@ -75,19 +75,27 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
-    it.skip('should be able to change the location state of NavBar and on submit clear the location state', () => {
+    it('should be able to click submit and register a click', () => {
+      const handleSubmit = sinon.spy()
+      const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
+      const submitBtn = wrapper.find('.submit-btn');
+
+      submitBtn.simulate('click');
+      expect(handleSubmit).to.have.property('callCount', 1);
+    });
+
+    it('should update the location state and clear on submit', () => {
+      const handleSubmit = sinon.spy()
       const wrapper = shallow(<NavBar handleSubmit={handleSubmit}/>);
       let navBarStates= wrapper.state();
-      const inputField = wrapper.find('.text-input');
       const submitBtn = wrapper.find('.submit-btn');
-      const handleSubmit = sinon.spy()
+      const inputField = wrapper.find('.text-input');
 
       expect(navBarStates.location).to.equal('');
       inputField.simulate('change', {target: {value: 'Denver, CO'}});
       navBarStates = wrapper.state();
 
       expect(navBarStates.location).to.equal('Denver, CO');
-      sinon.stub(wrapper.instance(), 'save')
       submitBtn.simulate('click');
       navBarStates = wrapper.state();
 
