@@ -6,7 +6,7 @@ require('babel-polyfill');
 const makeJQ = require('jquery');
 
 global.document = require('jsdom').jsdom(
-  '<head><meta charset="UTF-8"><div id="application"></div></head>',
+  '<head><meta charset="UTF-8"><div id="application"></div></head>'
 );
 
 global.window = document.defaultView;
