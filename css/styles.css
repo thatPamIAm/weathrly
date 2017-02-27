@@ -1,75 +1,205 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+html {
+  height: 100%;
+}
+
 body {
-  margin: 0;
-  background: aqua;
+  height: 100%;
+  background: linear-gradient(to bottom, #50C9C3 , #FFF) no-repeat;
+  font-family: 'Roboto', sans-serif;
+}
+
+.react-div {
+  height: 100%;
+  background: #50c9c3;
+  background: -webkit-linear-gradient(to bottom, #50c9c3 , #fff);
+  background: linear-gradient(to bottom, #50c9c3 , #fff) no-repeat;
 }
 
 navbar {
   display: block;
   width: 100%;
-  height: 30px;
+  height: 40px;
+  padding-top: 10px;
 }
 
-input[type=text] {
-  width: 70%;
+.text-input {
+  width: 68%;
   height: 30px;
-  border: none;
+  margin: 0 1%;
   padding: 0;
-  font-size: 12px;
+  color: #4b5555;
+  border: none;
+  font-size: 0.8em;
   text-indent: 5px;
+  border-radius: 20px;
 }
 
-input[type=submit] {
-  width: 30%;
+.submit-btn {
+  width: 28%;
   height: 30px;
+  margin: 0 1%;
   padding: 0;
+  background: #4b5555;
+  font-size: 0.8em;
+  color: #fff;
   border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.welcomeHeader {
+.main-header {
+  padding: 20px;
+  font-size: 1.8em;
   text-align: center;
 }
 
-.currentWeatherSection {
+.greeting-header {
+  padding: 10px;
   text-align: center;
 }
 
-.currentCity {
+.not-found-header {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.current-weather-section {
+  margin-bottom: 50px;
   text-align: center;
 }
 
-.currentDay {
+.current-city {
+  padding: 20px;
+  font-size: 2em;
+  font-weight: 700;
   text-align: center;
 }
 
-.currentTemp {
-text-align: center;
-}
-
-.simpleForecast {
+.current-day {
+  margin-top: 5px;
   text-align: center;
 }
 
-.weatherIcon {
+.current-temp {
+  padding-bottom: 10px;
+  font-size: 5em;
+  text-align: center;
+}
+
+.fahrenheit {
+  font-size:.25em;
+}
+
+.simple-forecast {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.weather-icon {
+  font-size: 5em;
   display: block;
-  font-size: 80px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
-.weatherSum {
+.weather-sum {
+  padding: 10px;
   text-align: center;
 }
 
-.loHiContainer {
+.lo-hi-container {
   position: relative;
+  margin: 10px;
 }
 
-.currentHi {
+.current-hi {
   position: absolute;
   top: 0;
   right: 10px;
+  font-size: 1.4em;
+  color: #b50000;
 }
-.currentLo {
+
+.current-lo {
   position: absolute;
   top: 0;
   left: 10px;
+  font-size: 1.4em;
+  color: #1460aa;
+}
+
+.seven-hour-container {
+  width: 90%;
+  height: 80px;
+  margin: 0 auto;
+  border-top: 1px solid #4b5555;
+  border-bottom: 1px solid #4b5555;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.ten-day-data {
+  width: 90%;
+  height: 60px;
+  margin: 0 auto;
+  border-bottom: 1px solid #4b5555;
+}
+
+.ten-day {
+  display: inline-block;
+  line-height: 60px;
+}
+
+.ten-day-lo {
+  position: absolute;
+  right: 70px;
+  color: #1460aa;
+}
+
+.ten-day-hi {
+  position: absolute;
+  right: 18px;
+  color: #b50000;
+
+}
+
+.ten-day-icon {
+  position: absolute;
+  left: 75px;
+  font-size: 1.4em;
+  line-height: 60px;
+}
+
+.ten-day-render {
+  margin-top: 20px;
+}
+
+.hourly-box {
+  display: inline-block;
+  margin: 6px;
+}
+
+.hourly-forecast {
+  text-align: center;
+}
+
+.hourly-time {
+  padding-bottom: 5px;
+}
+
+.hourly-icon {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2px 0;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.hourly-temp {
+  padding-top: 5px;
 }

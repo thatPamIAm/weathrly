@@ -19,8 +19,8 @@ describe('testing Weathrly App', () => {
 
     it('NavBar should contain an input feild and a submit button', () => {
       const wrapper = shallow(<NavBar/>);
-      expect(wrapper.find('.textInput')).to.have.length(1);
-      expect(wrapper.find('.submitBtn')).to.have.length(1);
+      expect(wrapper.find('.text-input')).to.have.length(1);
+      expect(wrapper.find('.submit-btn')).to.have.length(1);
     });
 
     it('NavBar should contain a state of location', () => {
@@ -30,21 +30,22 @@ describe('testing Weathrly App', () => {
       expect(navBarStates.location).to.equal('');
     });
 
-    it.skip('should be able to change the location state of NavBar', () => {
+    it('should be able to change the location state of NavBar', () => {
       const wrapper = shallow(<NavBar/>);
-      const navBarStates= wrapper.state();
-      const inputField = wrapper.find('.textInput');
+      let navBarStates = wrapper.state();
+      const inputField = wrapper.find('.text-input');
 
       expect(navBarStates.location).to.equal('');
-      inputField.simulate('change', {target: {value: 'Denver CO'}});
+      inputField.simulate('change', {target: {value: 'Denver, CO'}});
+      navBarStates = wrapper.state();
       expect(navBarStates.location).to.equal('Denver, CO');
     });
 
     it.skip('should be able to change the location state of NavBar and on submit clear the location state', () => {
       const wrapper = shallow(<NavBar/>);
       const navBarStates= wrapper.state();
-      const inputField = wrapper.find('.textInput');
-      const submitBtn = wrapper.find('.submitBtn');
+      const inputField = wrapper.find('.text-input');
+      const submitBtn = wrapper.find('.submit-btn');
 
       expect(navBarStates.location).to.equal('');
       inputField.simulate('change', {target: {value: 'Denver, CO'}});
@@ -61,9 +62,11 @@ describe('testing Weathrly App', () => {
       expect(wrapper.find('CurrentWeatherCard')).to.have.length(1);
     });
 
-    it('should display instructional text if CurrentWeatherCard recieves no data', () => {
+    it.skip('should display instructional text if CurrentWeatherCard recieves no data', () => {
       const wrapper = shallow(<CurrentWeatherCard/>);
-      expect(wrapper.find('h4').text()).to.equal('Please Enter a State and City');
+      console.log(wrapper.debug());
+      expect(wrapper.find(Greeting)).to.have.length(2)
+      expect(wrapper.find(Greeting).dive().find('h2')).to.equal('lease Enter a State and City');
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
@@ -71,13 +74,13 @@ describe('testing Weathrly App', () => {
       const forecastData   = WeatherData.ForecastData;
       const wrapper = shallow(<CurrentWeatherCard currentData={currentData} forecastData={forecastData}/>);
 
-      expect(wrapper.find('.currentCity').text()).to.equal('Den');
-      expect(wrapper.find('.currentDay').text()).to.equal('TODAY Monday');
-      expect(wrapper.find('.currentTemp').text()).to.equal('70 °F');
-      expect(wrapper.find('.simpleForecast').text()).to.equal('Clear');
-      expect(wrapper.find('.weatherSum').text()).to.equal('Clear all day');
-      expect(wrapper.find('.currentHi').text()).to.equal('High 70');
-      expect(wrapper.find('.currentLo').text()).to.equal('Low 32');
+      expect(wrapper.find('.current-city').text()).to.equal('Den');
+      expect(wrapper.find('.current-day').text()).to.equal('Monday');
+      expect(wrapper.find('.current-temp').text()).to.equal('70°F');
+      expect(wrapper.find('.simple-forecast').text()).to.equal('Clear');
+      expect(wrapper.find('.weather-sum').text()).to.equal('Clear all day');
+      expect(wrapper.find('.current-hi').text()).to.equal('High 70');
+      expect(wrapper.find('.current-lo').text()).to.equal('Low 32');
     });
 
   });
@@ -97,9 +100,9 @@ describe('testing Weathrly App', () => {
       const tenDayForecast = WeatherData.TenDay;
       const wrapper = shallow(<TenDay tenDayForecast={tenDayForecast}/>);
 
-      expect(wrapper.find('.tenDayData')).to.have.length(2);
+      expect(wrapper.find('.ten-day-data')).to.have.length(2);
 
-      const weatherDataText = wrapper.find('.tenDayData').map(node => node.text())
+      const weatherDataText = wrapper.find('.ten-day-data').map(node => node.text())
       expect(weatherDataText).to.deep.equal([ 'TueHi 65Lo 28', 'WedHi 58Lo 20' ]);
     });
 
