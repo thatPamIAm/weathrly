@@ -16,19 +16,19 @@ describe('testing Weathrly App', () => {
     it('should have props for four types of data', () => {
       const wrapper = shallow(<App/>);
 
-      expect(wrapper.props().responseData).to.be.defined;
-      expect(wrapper.props().currentData).to.be.defined;
-      expect(wrapper.props().forecastData).to.be.defined;
-      expect(wrapper.props().hourlyData).to.be.defined;
+      expect(wrapper.props().response).to.be.defined;
+      expect(wrapper.props().currentForecast).to.be.defined;
+      expect(wrapper.props().forecast).to.be.defined;
+      expect(wrapper.props().hourlyForecast).to.be.defined;
     });
 
     it('should have an initial state of null for all of its props', () => {
       const wrapper = shallow(<App/>);
 
-      expect(wrapper.state().responseData).to.equal(null);
-      expect(wrapper.state().currentData).to.equal(null);
-      expect(wrapper.state().forecastData).to.equal(null);
-      expect(wrapper.state().hourlyData).to.equal(null);
+      expect(wrapper.state().response).to.equal(null);
+      expect(wrapper.state().currentForecast).to.equal(null);
+      expect(wrapper.state().forecast).to.equal(null);
+      expect(wrapper.state().hourlyForecast).to.equal(null);
     });
 
     it('should contain a NavBar, CurrentWeatherCard, SevenHour, and TenDay component', () => {
@@ -43,8 +43,8 @@ describe('testing Weathrly App', () => {
 
   describe('testing LocationNotFound component', () => {
     it('should display LocationNotFound component when location is not found', () => {
-      const responseData = WeatherData.ResponseData;
-      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>);
+      const response = WeatherData.ResponseData.error;
+      const wrapper = shallow(<LocationNotFound response={response}/>);
 
       expect(wrapper.find('.not-found-header').text()).to.equal('No cities match your search query');
     });
@@ -119,17 +119,17 @@ describe('testing Weathrly App', () => {
     });
 
     it('should display instructional text if CurrentWeatherCard receives no data', () => {
-      const wrapper = shallow(<CurrentWeatherCard currentData={null}/>);
+      const wrapper = shallow(<CurrentWeatherCard currentForecast={null}/>);
       const greetWrapper = shallow(wrapper.node.type());
 
       expect(greetWrapper.find('.greeting-header').text()).to.equal('Please Enter a Location');
     });
 
     it('should display weather data if CurrentWeatherCard recieves data', () => {
-      const currentData = WeatherData.CurrentData;
-      const forecastData = WeatherData.ForecastData;
-      const wrapper = shallow(<CurrentWeatherCard currentData={currentData}
-        forecastData={forecastData}/>);
+      const currentForecast = WeatherData.CurrentData;
+      const forecast = WeatherData.ForecastData;
+      const wrapper = shallow(<CurrentWeatherCard currentForecast={currentForecast}
+        forecast={forecast}/>);
 
       expect(wrapper.find('.current-city').text()).to.equal('Den');
       expect(wrapper.find('.current-day').text()).to.equal('Monday');
@@ -151,13 +151,7 @@ describe('testing Weathrly App', () => {
     it('should display no data if nothing is passed into component', () => {
       const wrapper = shallow(<TenDay/>);
 
-      expect(wrapper.find('div').text()).to.equal('');
-    });
-
-    it('should render one div component', () => {
-      const wrapper = shallow(<TenDay/>);
-
-      expect(wrapper.find('div')).to.have.length.of(1);
+      expect(wrapper.node).to.equal(null);
     });
 
     it('should display weather data if TenDay receives data', () => {
@@ -181,7 +175,7 @@ describe('testing Weathrly App', () => {
     it('should display no data if nothing is passed into the component', () => {
       const wrapper = shallow(<SevenHour/>);
 
-      expect(wrapper.find('div').text()).to.equal('');
+      expect(wrapper.node).to.equal(null);
     });
 
     it('should display weather data if SevenHour receives data', () => {
