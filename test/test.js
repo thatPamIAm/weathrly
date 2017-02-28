@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
-import App from '../lib/components/App'
+import App from '../lib/containers/App'
 import NavBar from '../lib/components/NavBar'
 import CurrentWeatherCard from '../lib/components/CurrentWeatherCard'
 import TenDay from '../lib/components/TenDay'
