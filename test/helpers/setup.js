@@ -1,12 +1,12 @@
 require('babel-register')({
-  presets: ['react', 'es2015']
+  presets: ['react', 'es2015'],
 });
 
 require('babel-polyfill');
 const makeJQ = require('jquery');
 
 global.document = require('jsdom').jsdom(
-  "<head><meta charset='UTF-8><div id='application'></div></head>"
+  '<head><meta charset="UTF-8"><div id="application"></div></head>'
 );
 
 global.window = document.defaultView;

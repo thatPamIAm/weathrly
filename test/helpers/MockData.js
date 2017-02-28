@@ -1,72 +1,72 @@
 const CurrentData = {
   display_location: {
-    full: 'Den'
+    full: 'Den',
   },
-  temp_f: 70
+  temp_f: 70,
 };
 
 const ForecastData = {
   txt_forecast: {
-    forecastday:[{
+    forecastday: [{
       title: 'Monday',
-      fcttext: 'Clear all day'
-    }]
+      fcttext: 'Clear all day',
+    }],
   },
   simpleforecast: {
-    forecastday:[{
+    forecastday: [{
       conditions: 'Clear',
       high: {
-        fahrenheit: 70
+        fahrenheit: 70,
       },
       low: {
-        fahrenheit: 32
-      }
-    }]
-  }
+        fahrenheit: 32,
+      },
+    }],
+  },
 };
 
 const TenDay = {
   simpleforecast: {
     forecastday: [{
       date: {
-        weekday_short: 'Tue'
+        weekday_short: 'Tue',
       },
       high: {
-        fahrenheit: 65
+        fahrenheit: 65,
       },
       low: {
-        fahrenheit: 28
-      }
+        fahrenheit: 28,
+      },
     },
-      {
-        date: {
-          weekday_short: 'Wed'
-        },
-        high: {
-          fahrenheit: 58
-        },
-        low: {
-          fahrenheit: 20
-        }
-      }]
-  }
+    {
+      date: {
+        weekday_short: 'Wed',
+      },
+      high: {
+        fahrenheit: 58,
+      },
+      low: {
+        fahrenheit: 20,
+      },
+    }],
+  },
 };
 
 const SevenHour = [{
   FCTTIME: {
-    civil:'5:00PM'
+    civil: '5:00PM',
   },
 
   temp: {
-    english: '42'
-  }
+    english: '42',
+  },
 }];
 
 
 const ResponseData = {
   error: {
-    description: 'No cities match your search query'
-  }
+    description: 'No cities match your search query',
+  },
 };
 
 export default { CurrentData, ForecastData, TenDay, SevenHour, ResponseData };
