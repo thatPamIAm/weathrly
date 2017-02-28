@@ -156,6 +156,7 @@ navbar {
 }
 
 .ten-day-data {
+  position:relative;
   width: 90%;
   height: 60px;
   margin: 0 auto;
@@ -169,13 +170,13 @@ navbar {
 
 .ten-day-lo {
   position: absolute;
-  right: 70px;
+  right: 35px;
   color: #1460aa;
 }
 
 .ten-day-hi {
   position: absolute;
-  right: 18px;
+  right: 0px;
   color: #b50000;
 
 }
