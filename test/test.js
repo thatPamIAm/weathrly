@@ -41,12 +41,13 @@ describe('testing Weathrly App', () => {
     });
   });
 
-  describe('testing LocationNotFound component', () => {
+  describe('testing LocationNotFound c', () => {
     it('should display LocationNotFound component when location is not found', () => {
-      const responseData = WeatherData.ResponseData;
-      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>);
-
+      const responseData = WeatherData.ResponseData
+      const wrapper = shallow(<LocationNotFound responseData={responseData.error}/>)
+                              
       expect(wrapper.find('.not-found-header').text()).to.equal('No cities match your search query');
+
     });
   });
 
