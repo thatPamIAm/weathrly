@@ -185,13 +185,13 @@ navbar {
 
 .ten-day-lo {
   position: absolute;
-  right: 70px;
+  right: 35px;
   color: #1460aa;
 }
 
 .ten-day-hi {
   position: absolute;
-  right: 18px;
+  right: 0px;
   color: #b50000;
 
 }
